@@ -1,0 +1,56 @@
+@supports (display: grid) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 1em;
+    }
+}
+
+@supports not (display: grid) {
+    .container {
+        display: block;
+    }
+
+    .item {
+        display: inline-block;
+        width: 22.3vw;
+        float: left;
+        margin: 0.5em;
+    }
+}
+
+@media (max-width: 30em) {
+}
+
+@media (max-width: 49em) {
+    .container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow: scroll;
+        max-width: 90vw;
+        overflow-y: hidden;
+    }
+
+    .item {
+        flex: 0 0 auto;
+        margin-right: 2em;
+        margin-bottom: 1em;
+    }
+
+    .clicked{
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (min-width: 30em) and (max-width: 49em) {
+
+}
+
+@media (min-width: 49em){
+    .clicked{
+        grid-column: 2/4;
+    }
+}

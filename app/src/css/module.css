@@ -1,0 +1,14 @@
+@keyframes bread {
+    to {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes transformer {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}

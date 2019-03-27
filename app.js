@@ -16,6 +16,7 @@ const port = 3000
 
 
 function index(req, res) {
+
     fs.readFile('./src/results.json', function(error, data) {
         if (error) throw error;
         const jsonData = JSON.parse(data.toString());

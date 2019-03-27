@@ -1,0 +1,86 @@
+
+<% include ../partials/head.ejs %>
+
+
+    <header>
+        <% include ../partials/header.ejs %>
+    </header>
+    <main>
+        <form method="post" action="/detail">
+            <% if (tostiResult) { %>
+            <fieldset>
+                <legend>Brood</legend>
+                <div class="container">
+                    <% 	tostiResult.forEach(function(tosti) { %>
+                    <div class="item">
+                        <input type="checkbox" id="<%=tosti.bread%>" name="<%=tosti.bread%>" value="<%=tosti.bread%>">
+                        <label for="<%=tosti.bread%>">
+                            <div class="tosti-img"><img src="<%=tosti.bread_img%>" alt="<%=tosti.bread%>">
+                                <p>
+                                    <%=tosti.bread%>
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                    <% })%>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Kaas</legend>
+                <div class="container">
+                    <% 	tostiResult.forEach(function(tosti) { %>
+                    <div class="item">
+                        <input type="checkbox" id="<%=tosti.cheese%>" name="<%=tosti.cheese%>" value="<%=tosti.cheese%>">
+                        <label for="<%=tosti.cheese%>">
+                            <div class="tosti-img"><img src="<%=tosti.cheese_img%>" alt="<%=tosti.cheese%>">
+                                <p>
+                                    <%=tosti.cheese%>
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                    <% })%>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Vlees beleg</legend>
+                <div class="container">
+                    <% 	tostiResult.forEach(function(tosti) { %>
+                    <div class="item">
+                        <input type="checkbox" id="<%=tosti.meat%>" name="<%=tosti.meat%>" value="<%=tosti.meat%>">
+                        <label for="<%=tosti.meat%>">
+                            <div class="tosti-img"><img src="<%=tosti.meat_img%>" alt="<%=tosti.meat%>">
+                                <p>
+                                    <%=tosti.meat%>
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                    <% })%>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Extra topping</legend>
+                <div class="container">
+                    <% 	tostiResult.forEach(function(tosti) { %>
+                    <div class="item">
+                        <input type="checkbox" id="<%=tosti.topping%>" name="<%=tosti.topping%>" value="<%=tosti.topping%>">
+                        <label for="<%=tosti.topping%>">
+                            <div class="tosti-img"><img src="<%=tosti.topping_img%>" alt="<%=tosti.topping%>">
+                                <p>
+                                    <%=tosti.topping%>
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                    <% })%>
+                </div>
+            </fieldset>
+            <% } %>
+            <button class="form-btn node-btn" type="submit">Make my list!</button>
+            <button class="form-btn js-btn hidden" type="submit">Create my list!</button>
+        </form>
+        <section class="list">
+        </section>
+    </main>
+    <% include ../partials/footer.ejs %>
