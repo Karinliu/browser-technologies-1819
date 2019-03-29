@@ -4,16 +4,15 @@
         <% include ../partials/header.ejs %>
     </header>
     <main class="paper">
-        <form class="listresult" method="post" action="/start">
-            <% if (tostiResult) { %>
-            <% 	tostiResult.forEach(function(tosti) { %>
-            <p>
-                <%=tosti%>
-            </p>
-            <% })} %>
-        </form>
+        <h1> Boodschappenlijstje </h1>
+        <% if (tostiResult) { %>
+        <% 	tostiResult.forEach(function(tosti) { %>
+        <p>
+            <%=tosti%>
+        </p>
+        <% })} %>
 
-        <a href="mailto:mytosti@gmail.com?
+        <a class="mail-btn" href="mailto:mytosti@gmail.com?
           &amp;subject=Mijn%20tosti%20lijstje%20
           &amp;body=Hier%20is%20je%20lijstje%20voor%20de%20ultieme%20tosti!%20%0D%0A 
         <% if (tostiResult) { %>

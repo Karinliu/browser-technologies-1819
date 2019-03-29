@@ -9,19 +9,21 @@ const app = express()
     .use(express.static('./src/js'))
     .use(express.static('./src/images'))
     .use(bodyParser.json())
-    .use(bodyParser.urlencoded({extended: true}))
+    .use(bodyParser.urlencoded({
+        extended: true
+    }))
     .get('/', index)
     .get('/start', start)
-    .post("/detail", detail) 
+    .post("/detail", detail)
 
-const port = 4000 
+const port = 4000
 
 function index(req, res) {
-        res.render('pages/index.ejs');
-} 
+    res.render('pages/index.ejs');
+}
 
 function start(req, res) {
-        fs.readFile('./src/result.json', function(error, data) {
+    fs.readFile('./src/result.json', function(error, data) {
         if (error) throw error;
         const jsonData = JSON.parse(data.toString());
         const filteredData = jsonData.data.filter(tostiData)
@@ -40,7 +42,7 @@ function start(req, res) {
             tostiResult: filteredData
         });
     });
-} 
+}
 
 
 function tostiData(tosti) {
@@ -49,7 +51,7 @@ function tostiData(tosti) {
 
 
 function detail(req, res) {
-        fs.readFile('./src/result.json', function(error, data) {
+    fs.readFile('./src/result.json', function(error, data) {
         if (error) throw error;
         const jsonData = JSON.parse(data.toString());
         const filteredData = jsonData.data.filter(tostiData)
@@ -59,7 +61,7 @@ function detail(req, res) {
 
         // console.log(Object.keys(req.body))
         const result = []
-        Object.keys(req.body).forEach(bread=>{
+        Object.values(req.body).forEach(bread => {
             result.push(bread)
         })
         console.log("result op detail is" + result)
@@ -68,6 +70,6 @@ function detail(req, res) {
             tostiResult: result
         });
     });
-} 
+}
 
 app.listen(4000, () => console.log(`Example app listening on port ${port}!`))

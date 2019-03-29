@@ -36,7 +36,7 @@ form label:before {
 form :checked+label:before {
     content: "✓";
     color: #000;
-    background-color: var(--color-mint);
+    background-color: #21dcc9;
     transform: scale(1);
     transition: 0.5s;
 }
@@ -49,7 +49,7 @@ form :checked+label:before {
     animation: transformer  ease-in 0s 1;
     content: "✓";
     color: #000;
-    background-color: var(--color-mint);
+    background-color: #21dcc9;
     animation: transformer 0.5s;
 }
 
@@ -92,6 +92,18 @@ form input:focus + label .tosti-img img {
 }
 
 .form-btn:hover {
+    opacity: 0.8;
+    transform: scale(0.95);
+    transition: 0.5s;
+}
+
+.mail-btn:hover{
+    opacity: 0.8;
+    transform: scale(0.95);
+    transition: 0.5s;
+}
+
+.mail-btn:focus{
     opacity: 0.8;
     transform: scale(0.95);
     transition: 0.5s;
