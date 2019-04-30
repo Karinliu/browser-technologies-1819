@@ -1,7 +1,3 @@
-## Live version
-See here the live version:
-https://karin-tosti.herokuapp.com/
-
 ## Case
 The case that I have chosen is the Tosti application. Where the user can make their own shopping list to buy ingrediënts.
 
