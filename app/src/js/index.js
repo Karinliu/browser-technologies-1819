@@ -30,12 +30,28 @@
         // console.log(element.removeEventListener("click", handleClick))
         var parent = element.parentElement.parentElement
 
+
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
         }
         parent.insertAdjacentElement("beforeend", element);
 
-        listElements();
+        console.log(element)
+
+        var foo = element.cloneNode(true);
+
+        console.log(foo)
+
+        var list = document.querySelector(".list");
+        list.classList.remove("hidden");
+
+        document.getElementById("alltext").value += foo.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ')
+
+        // while (parent.firstChild) {
+        //     parent.removeChild(parent.firstChild);
+        // }
+
+        // listElements();
     }
 
     function copy() {
@@ -53,17 +69,17 @@
         }
     }
 
-    function listElements() {
-        var list = document.querySelector(".list");
-        var clickedElement = document.querySelector(".clicked p");
-        list.classList.remove("hidden");
+    // function listElements() {
+    //     var list = document.querySelector(".list");
+    //     var clickedElement = document.querySelector(".clicked p");
+    //     list.classList.remove("hidden");
 
-        document.getElementById("alltext").value += clickedElement.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ')
+    //     document.getElementById("alltext").value += clickedElement.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ')
 
-        // var listItem = document.createElement('p');
-        //     listItem.innerHTML = clickedElement.textContent || clickedElement.innerText;
-        //     list.appendChild(listItem);
-    }
+    //     // var listItem = document.createElement('p');
+    //     //     listItem.innerHTML = clickedElement.textContent || clickedElement.innerText;
+    //     //     list.appendChild(listItem);
+    // }
 
     // function copy(){
     //     var copyText = document.getElementById("alltext");

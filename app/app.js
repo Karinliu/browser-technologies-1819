@@ -16,7 +16,7 @@ const app = express()
     .get('/start', start)
     .post("/detail", detail)
 
-const port = 4000
+const port = 4000;
 
 function index(req, res) {
     res.render('pages/index.ejs');
