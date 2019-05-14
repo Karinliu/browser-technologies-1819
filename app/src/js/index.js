@@ -15,15 +15,58 @@
 
     for (var i = 0; i < fieldset.length; i++) {
         // console.log(fieldset[i]);
+        var inputs = fieldset[i].querySelectorAll("input[type='radio']");
+
+        console.log(inputs)
+        
+              for (var c = 0; c < inputs.length; c++) {
+            // console.log(fieldinputs[b]);
+
+            inputs[c].addEventListener("keydown", inputChecked)
+        }
+
         var fieldinputs = fieldset[i].querySelectorAll("input[type='radio'] + label");
         for (var b = 0; b < fieldinputs.length; b++) {
             // console.log(fieldinputs[b]);
+
             fieldinputs[b].addEventListener("click", handleClick)
+        }
+    }
+
+    function inputChecked(){
+        if (this.checked === true){
+                console.log("hij is goed")
+
+        var element = this;        
+        element.parentElement.classList.add("clicked");
+
+        var parent = element.parentElement.parentElement
+
+        console.log(parent)
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+        parent.insertAdjacentElement("beforeend", element.parentElement);
+
+        element.removeEventListener("keydown", inputChecked)
+
+        var foo = element.parentElement.cloneNode(true);
+
+        console.log(foo)
+
+        var list = document.querySelector(".list");
+        list.classList.remove("hidden");
+
+        document.getElementById("alltext").value += foo.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ')
+
+        }else{
+            handleClick()
         }
     }
 
     function handleClick() {
         var element = this;
+
         element.removeEventListener("click", handleClick)
         element.classList.add("clicked");
 

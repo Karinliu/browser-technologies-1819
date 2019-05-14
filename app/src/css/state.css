@@ -125,6 +125,10 @@ form input:focus + label .tosti-img img {
     animation: bread 1s steps(7);
 }
 
+.container .clicked:before{
+    opacity: 0;
+}
+
 @media (max-width: 30em) {
 
     .tosti-img:hover img {
