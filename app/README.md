@@ -1,4 +1,6 @@
 ## Case
+<img width="1280" alt="Screenshot 2019-05-15 21 37 30" src="https://user-images.githubusercontent.com/32538678/57807503-93665100-7761-11e9-83bc-43219e07d3bc.png">
+
 The case that I have chosen is the Tosti application. Where the user can make their own shopping list to buy ingrediënts.
 
 ## Wireflow
@@ -86,10 +88,23 @@ Also I wrote a fallback for browsers where @support does not excist. For example
 ```
 
 ## Accessibility
-I made a few accessibilities:
+I made a few accessibilities: <br>
 • For screenreaders I used an Alt-tag for images. <br>
 • Every label has a name. <br>
 • When a label is checked, the screen shows a check. <br>
 • when a label is checked, text will be displayed shown and image becomes a bit transparent. <br>
 • Hover I have added a transparancy and the text will be shown for the user. <br>
 • Tried to use as little color as possible for the contrast. <br>
+
+## Changes
+During the feedback session there were a number of points that needed to be improved: <br>
+• Tabben with keyboard keys. <br>
+• Copy to clipboard does not work from bottom to top (selecting ingredients). <br>
+• Copy to clipboard did not work like it should be. <br>
+
+##### Keyboard functions
+Now when the user is going to tab into the application, the user can use his/her keyboard to select an ingredient to their list. After the ingredients is selected, the user can use the button to copy the ingredients to his/her clipboard.
+<img width="1280" alt="Screenshot 2019-05-15 22 33 30" src="https://user-images.githubusercontent.com/32538678/57807469-88132580-7761-11e9-9fae-ff9da291ce9b.png">
+
+
+

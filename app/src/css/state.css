@@ -41,6 +41,42 @@ form :checked+label:before {
     transition: 0.5s;
 }
 
+form :checked+label p{
+    color: black;
+}
+
+form :checked+label img{
+    opacity: 0.5;
+}
+
+
+
+.clickedKey{
+    animation: transformer 0.5s;
+}
+
+/*.clickedKey:before {
+    animation: transformer  ease-in 0s 1;
+    content: "✓";
+    color: #000;
+    background-color: #21dcc9;
+    animation: transformer 0.5s;
+}*/
+
+.clickedKey .tosti-img{
+    cursor: default;
+}
+
+.clickedKey .tosti-img img{
+    opacity: 0.5;
+}
+
+.clickedKey .tosti-img p {
+    color: black;
+}
+
+
+
 .clicked{
     animation: transformer 0.5s;
 }
@@ -126,7 +162,7 @@ form input:focus + label .tosti-img img {
 }
 
 .container .clicked:before{
-    opacity: 0;
+    /*opacity: 0;*/
 }
 
 @media (max-width: 30em) {
