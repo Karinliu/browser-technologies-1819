@@ -18,7 +18,7 @@ The pleasurable layer for the user is that he/she does not have to go to the nex
 
 
 #### usable
-The pleasurable layer for the user is that he/she can still select items for their shopping list. And  by clicking on a link the person can send the shopping list to themselves via e-mail.
+The usable layer for the user is that he/she can still select items for their shopping list. And  by clicking on a link the person can send the shopping list to themselves via e-mail.
 
 #### Functional/reliable
 The functional/reliable part is that the user can create choose ingrediënts and display it on their screen.
@@ -104,6 +104,7 @@ During the feedback session there were a number of points that needed to be impr
 
 ##### Keyboard functions
 Now when the user is going to tab into the application, the user can use his/her keyboard to select an ingredient to their list. After the ingredients is selected, the user can use the button to copy the ingredients to his/her clipboard.
+
 <img width="1280" alt="Screenshot 2019-05-15 22 33 30" src="https://user-images.githubusercontent.com/32538678/57807469-88132580-7761-11e9-9fae-ff9da291ce9b.png">
 
 
