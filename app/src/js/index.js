@@ -67,6 +67,7 @@
                 console.log("hij is goed")
 
                 var element = this;
+                element.parentElement.classList = ""
                 element.parentElement.classList.add("clickedKey");
 
                 var parent = element.parentElement.parentElement

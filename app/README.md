@@ -108,15 +108,70 @@ Now when the user is going to tab into the application, the user can use his/her
 <img width="1280" alt="Screenshot 2019-05-15 22 33 30" src="https://user-images.githubusercontent.com/32538678/57807469-88132580-7761-11e9-9fae-ff9da291ce9b.png">
 
 
-## Feature detection
-For the feature detection I added some functions:
+## Feature detection 
+
 
 ##### Javascript
-For Javascript I used 
+for my JavaScript I wrote some codes that are not supported in every browser. For example I used querySelector.
+<img width="1162" alt="Screenshot 2019-05-22 21 56 12" src="https://user-images.githubusercontent.com/32538678/58206488-0aab6000-7ce1-11e9-9133-38043922970e.png">
+
+Sometimes the code that I wrote, works for every browsers, for example getElementById:
+<img width="1162" alt="Screenshot 2019-05-22 21 55 58" src="https://user-images.githubusercontent.com/32538678/58207059-3bd86000-7ce2-11e9-82a5-06406c451eb3.png">
+
+
+First I wanted to write the old school way of coding, but when I wanted to use getElementsByClassName, I saw that this way of selecting a class, is not supported for older browsers (IE6 to IE8).
+<img width="1162" alt="Screenshot 2019-05-22 21 55 43" src="https://user-images.githubusercontent.com/32538678/58208958-44cb3080-7ce6-11e9-99cc-439849b4885a.png">
+
+So instead of trying to write all the javascript code in the old school way, I wrote a function to see if the browser supports this features.
+
+```
+    function featureDetectionCheck(feature, where, type) {
+        return feature in where &&
+            type ?
+            typeof where[feature] === type :
+            true
+    }
+
+
+    function enableJavaScript() {
+        return featureDetectionCheck('classList', document.body) &&
+            featureDetectionCheck('Array', Array.prototype, 'function') &&
+            featureDetectionCheck('querySelectorAll', document.body, 'function') &&
+            featureDetectionCheck('querySelector', document.body) &&
+            featureDetectionCheck('getElementById', document.body)
+    }
+```
+
+Because when JavaScript is not supported, it will continue to function as how it should be. The only thing javascript does is make some functionalities "more beautiful" for the user but not better.
+
+So when the features is not supported, Javascript will not be used in the browser.
+
+##### CSS
+For CSS I used @supports. If the browser does support grid, a grid will be used. If the browser does not support grid, then flexbox will be used.
+
+Because [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) specify declarations that depend on a browser's support for one or more specific CSS features. This is called a feature query. The rule may be placed at the top level of your code or nested inside any other conditional group at-rule.
+
+
+Some browsers does not support @supports. 
+
+<img width="1155" alt="Screenshot 2019-05-22 23 16 21" src="https://user-images.githubusercontent.com/32538678/58209601-9fb15780-7ce7-11e9-9986-30823fcec7e5.png">
+
+So when the browser does not support this function, @supports will not be read. So to prevent this, I wrote the same CSS code when grid is not supported:
+
+```
+.item {
+    display: inline-block;
+    width: 280px;
+    width: 22.3vw;
+    float: left;
+    margin: 8px;
+}
+```
+
+Also in the code above you see that I wrote a fallback voor de viewwidth. Because vw also is not supported for older browsers.
 
 ##### Live version
 For the live version you can see the following link: [Demo](https://karin-tosti.herokuapp.com)
 
 
-
-
+• Thanks [Tim](https://github.com/Timilof/browser-technologies-1819) for helping me with writing this feature detection! :)
