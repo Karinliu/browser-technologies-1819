@@ -174,4 +174,6 @@ Also in the code above you see that I wrote a fallback voor de viewwidth. Becaus
 For the live version you can see the following link: [Demo](https://karin-tosti.herokuapp.com)
 
 
+--------------------------
+
 • Thanks [Tim](https://github.com/Timilof/browser-technologies-1819) for helping me with writing this feature detection! :)
