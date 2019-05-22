@@ -6,8 +6,8 @@
     }
 
     .item {
-        width: auto !important;
-        margin: 0 !important;
+        width: auto;
+        margin: 0;
     }
 }
 
