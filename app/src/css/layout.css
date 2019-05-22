@@ -6,8 +6,8 @@
     }
 
     .item {
-        width: auto!important;
-        margin: 0!important;
+        width: auto !important;
+        margin: 0 !important;
     }
 }
 
@@ -20,65 +20,61 @@
         display: inline-block;
         width: 22.3vw;
         float: left;
-        margin: 0.5em;
+        margin: 5px;
     }
 }
 
 .item {
     display: inline-block;
-    width: 22.3vw;
+    width: 280px;
     width: 23%;
     float: left;
-    margin: 0.5em;
+    margin: 8px;
 }
 
-@media (max-width: 30em) {
-}
-
-@media (max-width: 49em) {
+@media (max-width: 784px) {
     .container {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
         overflow: scroll;
+        max-width: 660px;
         max-width: 90vw;
         overflow-y: hidden;
     }
 
     .item {
         flex: 0 0 auto;
-        margin-right: 2em;
-        margin-bottom: 1em;
+        margin-right: 32px;
+        margin-bottom: 16px;
     }
 
-    .clicked{
-        margin: 0 auto!important;
+    .clicked {
+        margin: 0 auto !important;
         left: 0;
         right: 0;
     }
 
-    .clickedKey{
-            display: inline-block;
-    margin: 0 auto!important;
+    .clickedKey {
+        display: inline-block;
+        margin: 0 auto !important;
     }
 
-    .clickedKey label{
-            margin: 0 auto!important;
-    left: 0;
-    right: 0;
+    .clickedKey label {
+        margin: 0 auto !important;
+        left: 0;
+        right: 0;
     }
 }
 
-@media (min-width: 30em) and (max-width: 49em) {
+@media (min-width: 480px) and (max-width: 784px) {}
 
-}
-
-@media (min-width: 49em){
-    .clickedKey{
+@media (min-width: 784px) {
+    .clickedKey {
         grid-column: 2/4;
     }
 
-    .clicked{
+    .clicked {
         grid-column: 2/4;
     }
 }

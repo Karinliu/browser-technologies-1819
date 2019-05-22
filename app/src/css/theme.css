@@ -1,7 +1,7 @@
 /* width */
 ::-webkit-scrollbar {
-    width: 0.5em;
-    height: 0.5em;
+    width: 8px;
+    height: 8px;
 }
 
 /* Track */
@@ -12,7 +12,7 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #dcdcdc;
-    border-radius: 1em;
+    border-radius: 15px;
 }
 
 /* Handle on hover */
@@ -22,8 +22,8 @@
 }
 
 .bread {
-    width: 12em;
-    height: 15em;
+    width: 192px;
+    height: 240px;
     background-image: url(../bread.svg);
     background-repeat: no-repeat;
     background-size: 1200%;
@@ -31,19 +31,21 @@
 }
 
 .paper {
-    padding-left: 3em;
-    margin-top: 2em;
+    padding-left: 48px;
+    margin-top: 32px;
+    height: 400px;
     height: 80vh;
     background-color: #fff;
     background: linear-gradient(90deg, transparent 39px, #abced4 39px, #abced4 41px, transparent 41px), linear-gradient(#eee .1em, transparent .1em);
-    background-size: 100% 1.5em;
+    background-size: 100% 24px;
 }
 
 .paper-list {
-    padding-left: 3em;
-    margin-top: 2em;
+    padding-left: 48px;
+    margin-top: 32px;
+    height: 200px;
     height: 40vh;
     background-color: #fff;
     background: linear-gradient(90deg, transparent 39px, #abced4 39px, #abced4 41px, transparent 41px), linear-gradient(#eee .1em, transparent .1em);
-    background-size: 100% 1.5em;
+    background-size: 100% 24px;
 }
