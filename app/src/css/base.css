@@ -129,7 +129,7 @@ form fieldset {
 }
 
 form fieldset legend {
-    color: #21dcc9;
+    color: black;
     margin: 16px;
     margin-bottom: -8px;
 }
