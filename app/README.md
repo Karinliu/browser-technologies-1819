@@ -30,11 +30,11 @@ The accessibility that I  have been searching for is to see if there are Javascr
 ```js
     function copy() {
         if (false == document.execCommand('copy')) {
-            var btn = document.querySelector(".node-btn").classList.add("hidden");
-            var btnJs = document.querySelector(".js-btn");
-                btnJs.classList.remove("hidden");
+            var btn = document.getElementById("node-btn");
+            btn.className += " hidden"
+            var btnJs = document.getElementById("js-btn");
+            btnJs.className = "form-btn js-btn "
         } else {
-
             var copyText = document.getElementById("alltext");
             console.log(copyText)
             copyText.select();
@@ -42,12 +42,40 @@ The accessibility that I  have been searching for is to see if there are Javascr
             console.log("copy copy")
         }
     }
+```
+
+For inserting the elements in the copy textarea, I used:
+
+```js
+element.innerText || element.textContent.
 
 ```
+
+The reason why I used innertext or textcontext, is because `textContent` is not supported in IE. And by using `innerText`, innertext is not supported in Firefox.
+
+<img width="400" alt="Screenshot 2019-07-01 20 25 09" src="https://user-images.githubusercontent.com/32538678/60458328-9d271380-9c3e-11e9-889e-e28c6fa2060c.png">
+<img width="400" alt="Screenshot 2019-07-01 20 25 22" src="https://user-images.githubusercontent.com/32538678/60458329-9d271380-9c3e-11e9-8d25-62e96d3e5211.png">
+
+
+So when the browser does not support the copy function, the browser will not show the copy button. Instead it wil show you a mail button. 
+
+In my HTML I used an `<a> </a>` so the chosen ingredients will be sended to your own email. By using `subject=` I gave my email a subject and by using `body=`, the ingredients will be placed into the body element of your email.
 
 For CSS I made a support for grid templating. I made a fallback for supports with @supports, see below the code:
 
 ```css
+.container {
+    display: block;
+}
+
+.item {
+    display: inline-block;
+    width: 280px;
+    width: 22.3vw;
+    float: left;
+    margin: 8px;
+}
+
 @supports (display: grid) {
     .container {
         display: grid;
@@ -56,36 +84,16 @@ For CSS I made a support for grid templating. I made a fallback for supports wit
     }
 
     .item {
-        width: auto!important;
-        margin: 0!important;
+        width: auto;
+        margin: 0;
     }
 }
 
-@supports not (display: grid) {
-    .container {
-        display: block;
-    }
-
-    .item {
-        display: inline-block;
-        width: 22.3vw;
-        float: left;
-        margin: 0.5em;
-    }
-}
 ```
+CSS has a feature that can test if the browser supports a particular property or property:value before applying on the web for the user, namely: `@supports`.
 
-Also I wrote a fallback for browsers where @support does not excist. For example IE. 
+The code above says: If the browser supports grid use grid, but if the browser does not support grid then use inline-block. 
 
-```css
-.item {
-    display: inline-block;
-    width: 22.3vw;
-    width: 23%;
-    float: left;
-    margin: 0.5em;
-}
-```
 
 ## Accessibility
 I made a few accessibilities: <br>
@@ -110,65 +118,78 @@ Now when the user is going to tab into the application, the user can use his/her
 
 ## Feature detection 
 
-
 ##### Javascript
-for my JavaScript I wrote some codes that are not supported in every browser. For example I used querySelector.
+for my JavaScript I wrote some codes that are not supported in every browser. For example I used querySelectorAll.
 <img width="1162" alt="Screenshot 2019-05-22 21 56 12" src="https://user-images.githubusercontent.com/32538678/58206488-0aab6000-7ce1-11e9-9133-38043922970e.png">
-
-Sometimes the code that I wrote, works for every browsers, for example getElementById:
-<img width="1162" alt="Screenshot 2019-05-22 21 55 58" src="https://user-images.githubusercontent.com/32538678/58207059-3bd86000-7ce2-11e9-82a5-06406c451eb3.png">
-
 
 First I wanted to write the old school way of coding, but when I wanted to use getElementsByClassName, I saw that this way of selecting a class, is not supported for older browsers (IE6 to IE8).
 <img width="1162" alt="Screenshot 2019-05-22 21 55 43" src="https://user-images.githubusercontent.com/32538678/58208958-44cb3080-7ce6-11e9-99cc-439849b4885a.png">
 
 So instead of trying to write all the javascript code in the old school way, I wrote a function to see if the browser supports this features.
 
+First I searched what type of selectors works in EVERY browser, for example getElementById and getElementsByTagName:
+<img width="1162" alt="Screenshot 2019-05-22 21 55 58" src="https://user-images.githubusercontent.com/32538678/58207059-3bd86000-7ce2-11e9-82a5-06406c451eb3.png">
+
+So I wrote a querySelectorAll check to see if the browser supports querySelectorAll then use this. If the browser does not support querySelectorAll, then use getElementsByTagname. See below the code:
+
 ```js
-    function featureDetectionCheck(feature, where, type) {
-        return feature in where &&
-            type ?
-            typeof where[feature] === type :
-            true
-    }
-
-
-    function enableJavaScript() {
-        return featureDetectionCheck('classList', document.body) &&
-            featureDetectionCheck('Array', Array.prototype, 'function') &&
-            featureDetectionCheck('querySelectorAll', document.body, 'function') &&
-            featureDetectionCheck('querySelector', document.body) &&
-            featureDetectionCheck('getElementById', document.body)
+    function checkQuerySelectorAll(element) {
+        if ('querySelectorAll' in document) {
+            return document.querySelectorAll(element);
+        } else {
+            return document.getElementsByTagName(element);
+        }
     }
 ```
 
-Because when JavaScript is not supported, it will continue to function as how it should be. The only thing javascript does is make some functionalities "more beautiful" for the user but not better.
-
-So when the features is not supported, Javascript will not be used in the browser.
-
 ##### CSS
-For CSS I used @supports. If the browser does support grid, a grid will be used. If the browser does not support grid, then flexbox will be used.
+CSS has a feature that can test if the browser supports a particular property or property:value before applying on the web for the user, namely: `@supports`.
 
-Because [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) specify declarations that depend on a browser's support for one or more specific CSS features. This is called a feature query. The rule may be placed at the top level of your code or nested inside any other conditional group at-rule.
-
-
-Some browsers does not support @supports. 
+So for my CSS I used @supports. If the browser does support grid, a grid will be used. But sometimes browsers does not support @supports. 
 
 <img width="1155" alt="Screenshot 2019-05-22 23 16 21" src="https://user-images.githubusercontent.com/32538678/58209601-9fb15780-7ce7-11e9-9986-30823fcec7e5.png">
 
-So when the browser does not support this function, @supports will not be read. So to prevent this, I wrote the same CSS code when grid is not supported:
+So to prevent the app will be broken, i wrote a fallback with floats. So when the browser does not use @supports or grid, then float will be used.
 
 ```css
+.container {
+    display: block;
+}
+
 .item {
     display: inline-block;
     width: 280px;
     width: 22.3vw;
     float: left;
     margin: 8px;
+    /*background: blue;*/
+}
+
+@supports (display: grid) {
+    .container {
+        /*background: pink;*/
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 1em;
+    }
+
+    .item {
+        width: auto;
+        margin: 0;
+         /*background: pink;*/
+    }
 }
 ```
+To read more about @supports you can visit my article when I tested @supports, for example: <br>
+* @supports is supported but grid not? <br>
+* @supports is not supported but grid is? <br>
+* @supports is supported and grid is supported? <br>
+
+You can visit the following link: [@supports](https://github.com/Karinliu/weekly-nerd-1819/blob/master/%40supports/%40supports.md).
 
 Also in the code above you see that I wrote a fallback voor de viewwidth. Because vw also is not supported for older browsers.
+
+The other thing what is not supported in every browser is :hover, so to fallback that I used the [historical](https://css-tricks.com/snippets/css/cross-browser-opacity/) version off adding transparancy with the following CSS line: `filter: alpha(opacity=50);`.
 
 ##### Live version
 For the live version you can see the following link: [Demo](https://karin-tosti.herokuapp.com)

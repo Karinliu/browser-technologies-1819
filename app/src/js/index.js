@@ -1,6 +1,5 @@
 (function() {
     // Check if addEventListener is supported
-
     if ('addEventlistener' in document) {
         toggleNodeBtn()
 
@@ -13,9 +12,6 @@
         btnJs.addEventListener("click", copy);
     }
 
-    // If querySelectorAll is supported
-    // if (document.querySelectorAll) {
-    console.log('querySelectorAll true')
     // var fieldset = Array.from(document.querySelectorAll("fieldset"));
     var fieldset = checkQuerySelectorAll("fieldset");
 
@@ -44,22 +40,15 @@
 
     function inputChecked() {
         if (this.checked === true) {
-            console.log("hij is goed")
-
             var element = this;
             // element.parentElement.className = ""
             // element.parentElement.className += ("clickedKey");
-
             // var parent = element.parentElement.parentElement
-
             //  var fieldsetFirst = document.getElementsByTagName('fieldset')[0];
-
             //  while (parent.firstChild) {
             //      parent.removeChild(parent.firstChild);
             //  }
-
             //  parent.insertAdjacentElement("beforeend", element.parentElement);
-
             element.removeEventListener("keydown", inputChecked)
             var foo = element.parentElement;
             var list = document.getElementById("list");
@@ -75,15 +64,11 @@
         var element = this;
         element.removeEventListener("click", handleClick)
         // element.className += "clicked";
-
         // var parent = element.parentElement.parentElement
-
         // while (parent.firstChild) {
         //     parent.removeChild(parent.firstChild);
         // }
         // parent.insertAdjacentElement("beforeend", element);
-
-        // console.log(parent)
         var foo = element;
         var list = document.getElementById("list");
         list.className = "list paper paper-list "
@@ -140,6 +125,5 @@
             btnJs.classname = "form-btn js-btn hidden"
         }
     }
-
 
 })();
