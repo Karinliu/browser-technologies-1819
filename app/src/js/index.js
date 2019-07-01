@@ -145,11 +145,11 @@
         }
     }
 
-    function checkQuerySelectorAll(query) {
+    function checkQuerySelectorAll(element) {
         if ('querySelectorAll' in document) {
-            return document.querySelectorAll(query);
+            return document.querySelectorAll(element);
         } else {
-            return document.getElementsByTagName(query);
+            return document.getElementsByTagName(element);
         }
     }
 
