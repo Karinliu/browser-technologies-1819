@@ -29,13 +29,19 @@
 
 @media (max-width: 784px) {
     .container {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow: scroll;
-        max-width: 660px;
-        max-width: 90vw;
-        overflow-y: hidden;
+        display: block;
+    }
+
+    @supports (display: flex) {
+        .container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow: scroll;
+            max-width: 660px;
+            max-width: 90vw;
+            overflow-y: hidden;
+        }
     }
 
     .item {
