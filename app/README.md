@@ -27,7 +27,7 @@ The functional/reliable part is that the user can create choose ingrediënts and
 ## Features browser
 The accessibility that I  have been searching for is to see if there are Javascript functions who not support some browser versions. For example copy to clipboard does not support every browser like IE 6-8. See below the code: 
 
-```
+```js
     function copy() {
         if (false == document.execCommand('copy')) {
             var btn = document.querySelector(".node-btn").classList.add("hidden");
@@ -47,7 +47,7 @@ The accessibility that I  have been searching for is to see if there are Javascr
 
 For CSS I made a support for grid templating. I made a fallback for supports with @supports, see below the code:
 
-```
+```css
 @supports (display: grid) {
     .container {
         display: grid;
@@ -77,7 +77,7 @@ For CSS I made a support for grid templating. I made a fallback for supports wit
 
 Also I wrote a fallback for browsers where @support does not excist. For example IE. 
 
-```
+```css
 .item {
     display: inline-block;
     width: 22.3vw;
@@ -124,7 +124,7 @@ First I wanted to write the old school way of coding, but when I wanted to use g
 
 So instead of trying to write all the javascript code in the old school way, I wrote a function to see if the browser supports this features.
 
-```
+```js
     function featureDetectionCheck(feature, where, type) {
         return feature in where &&
             type ?
@@ -158,7 +158,7 @@ Some browsers does not support @supports.
 
 So when the browser does not support this function, @supports will not be read. So to prevent this, I wrote the same CSS code when grid is not supported:
 
-```
+```css
 .item {
     display: inline-block;
     width: 280px;
@@ -172,8 +172,3 @@ Also in the code above you see that I wrote a fallback voor de viewwidth. Becaus
 
 ##### Live version
 For the live version you can see the following link: [Demo](https://karin-tosti.herokuapp.com)
-
-
---------------------------
-
-• Thanks [Tim](https://github.com/Timilof/browser-technologies-1819) for helping me with writing this feature detection! :)

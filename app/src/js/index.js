@@ -30,62 +30,15 @@
     }
 
     // If querySelectorAll is supported
-    if (document.querySelectorAll) {
+    // if (document.querySelectorAll) {
         console.log('querySelectorAll true')
         // var fieldset = Array.from(document.querySelectorAll("fieldset"));
-        var fieldset = document.querySelectorAll("fieldset");
+        var fieldset = checkQuerySelectorAll("fieldset");
 
-        for (var i = 0; i < fieldset.length; i++) {
-            var inputs = fieldset[i].querySelectorAll("input[type='checkbox']");
-
-            for (var c = 0; c < inputs.length; c++) {
-                // if addEventlistener is supported
-                if (document.addEventListener) {
-                    console.log('addevent true')
-                    inputs[c].addEventListener("keydown", inputChecked)
-                } else {
-                    var btn = document.getElementById("node-btn");
-                    var btnJs = document.getElementById("js-btn");
-                    btnJs.className += " hidden"
-                    var classes = btn.className.split(" ");
-                    var i = classes.indexOf("hidden");
-                    if (i >= 0) {
-                        btn.className = "form-btn node-btn "
-                    } else {
-                        btn.classname = "form-btn node-btn hidden"
-                    }
-                }
-            }
-            var fieldinputs = fieldset[i].querySelectorAll("input[type='checkbox'] + label");
-            for (var b = 0; b < fieldinputs.length; b++) {
-
-                // if addEventlistener is supported
-                if (document.addEventListener) {
-                    console.log('addevent true')
-                    fieldinputs[b].addEventListener("click", handleClick)
-                } else {
-                    console.log('do nothing')
-
-                    var btn = document.getElementById("node-btn");
-                    var btnJs = document.getElementById("js-btn");
-                    btnJs.className += " hidden"
-                    var classes = btn.className.split(" ");
-                    var i = classes.indexOf("hidden");
-                    if (i >= 0) {
-                        btn.className = "form-btn node-btn "
-                    } else {
-                        btn.classname = "form-btn node-btn hidden"
-                    }
-                }
-            }
-        }
-    } else {
-        console.log('querySelectorAll false')
-        var fieldset = document.getElementsByTagName('fieldset')
         for (var i = 0; i < fieldset.length; i++) {
             var inputs = fieldset[i].getElementsByTagName("input");
-            for (var c = 0; c < inputs.length; c++) {
 
+            for (var c = 0; c < inputs.length; c++) {
                 // if addEventlistener is supported
                 if (document.addEventListener) {
                     console.log('addevent true')
@@ -104,8 +57,8 @@
                 }
             }
             var fieldinputs = fieldset[i].getElementsByTagName("label");
-            console.log(fieldinputs)
             for (var b = 0; b < fieldinputs.length; b++) {
+
                 // if addEventlistener is supported
                 if (document.addEventListener) {
                     console.log('addevent true')
@@ -126,7 +79,6 @@
                 }
             }
         }
-    }
 
     function inputChecked() { 
         if (this.checked === true) {
@@ -192,4 +144,14 @@
             console.log("copy copy")
         }
     }
+
+    function checkQuerySelectorAll(query) {
+        if ('querySelectorAll' in document) {
+            return document.querySelectorAll(query);
+        } else {
+            return document.getElementsByTagName(query);
+        }
+    }
+
+
 })();

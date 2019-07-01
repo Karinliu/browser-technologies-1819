@@ -12,21 +12,6 @@
     /*background: blue;*/
 }
 
-@supports not (display: grid) {
-    .container {
-        display: block;
-        /*background: black;*/
-    }
-
-    .item {
-        display: inline-block;
-        width: 22.3vw;
-        float: left;
-        margin: 5px;
-        /*background: black;*/
-    }
-}
-
 @supports (display: grid) {
     .container {
         /*background: pink;*/
@@ -77,9 +62,25 @@
     }
 }
 
+@media (min-width: 200px) {
+    .item{
+        width: 240px;
+    }
+}
+
+@media (min-width: 500px) {
+    .item{
+        width: 310px;
+    }
+}
+
 @media (min-width: 480px) and (max-width: 784px) {}
 
 @media (min-width: 784px) {
+    .item{
+        width: 280px;
+    }
+
     .clickedKey {
         grid-column: 2/4;
     }
