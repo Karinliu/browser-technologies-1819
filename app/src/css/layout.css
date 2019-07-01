@@ -1,27 +1,6 @@
-@supports (display: grid) {
-    .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 1em;
-    }
-
-    .item {
-        width: auto;
-        margin: 0;
-    }
-}
-
-@supports not (display: grid) {
-    .container {
-        display: block;
-    }
-
-    .item {
-        display: inline-block;
-        width: 22.3vw;
-        float: left;
-        margin: 5px;
-    }
+.container {
+    display: block;
+/*    background: blue;*/
 }
 
 .item {
@@ -30,8 +9,38 @@
     width: 22.3vw;
     float: left;
     margin: 8px;
+    /*background: blue;*/
 }
 
+@supports not (display: grid) {
+    .container {
+        display: block;
+        /*background: black;*/
+    }
+
+    .item {
+        display: inline-block;
+        width: 22.3vw;
+        float: left;
+        margin: 5px;
+        /*background: black;*/
+    }
+}
+
+@supports (display: grid) {
+    .container {
+        /*background: pink;*/
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 1em;
+    }
+
+    .item {
+        width: auto;
+        margin: 0;
+         /*background: pink;*/
+    }
+}
 
 @media (max-width: 784px) {
     .container {

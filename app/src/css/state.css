@@ -12,7 +12,15 @@ nav ul li a:hover {
     transition: 0.5s;
 }
 
+nav ul li a:hover {
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+    transform: scale(0.95);
+    transition: 0.5s;
+}
+
 nav ul li a:focus {
+    filter: alpha(opacity=75);
     opacity: 0.75;
     transform: scale(0.95);
     transition: 0.5s;
@@ -41,12 +49,26 @@ form :checked+label:before {
     transition: 0.5s;
 }
 
+form :not(:checked)+label:before {
+    content: " ";
+    color: transparent;
+    background-color: transparent;
+}
+
 form :checked+label p{
     color: black;
 }
 
+form :not(:checked)+label p{
+    color: transparent;
+}
+
 form :checked+label img{
     opacity: 0.5;
+}
+
+form :not(:checked)+label img{
+    opacity: 1;
 }
 
 
@@ -112,28 +134,33 @@ form input:focus + label .tosti-img p {
 }
 
 .tosti-img:hover img {
+    filter: alpha(opacity=50);
     opacity: 0.5;
     transition: 0.5s;
 }
 
 form input:focus + label .tosti-img img {
+    filter: alpha(opacity=60);
     opacity: 0.6;
     transition: 0.5s;
 }
 
 .start-btn:hover {
+    filter: alpha(opacity=80);
     opacity: 0.8;
     transform: scale(0.95);
     transition: 0.5s;
 }
 
 .form-btn:hover {
+    filter: alpha(opacity=80);
     opacity: 0.8;
     transform: scale(0.95);
     transition: 0.5s;
 }
 
 .mail-btn:hover{
+    filter: alpha(opacity=80);
     opacity: 0.8;
     transform: scale(0.95);
     transition: 0.5s;
