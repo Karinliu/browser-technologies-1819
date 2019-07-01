@@ -41,12 +41,13 @@
             max-width: 660px;
             max-width: 90vw;
             overflow-y: hidden;
-    }
-    
-    .item {
-        flex: 0 0 auto;
-        margin-right: 32px;
-        margin-bottom: 16px;
+        }
+
+        .item {
+            flex: 0 0 auto;
+            margin-right: 32px;
+            margin-bottom: 16px;
+        }
     }
 }
 
